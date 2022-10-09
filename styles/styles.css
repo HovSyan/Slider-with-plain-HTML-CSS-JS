@@ -1,0 +1,37 @@
+.slider-container {
+  display: block;
+  margin: 100px auto 10px auto;
+  overflow: hidden;
+  height: 350px;
+  width: 1000px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.image {
+  height: 350px;
+  width: 1000px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  background-color: grey;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.dots-container {
+  width: fit-content;
+  margin: auto;
+}
+
+.selected-dot {
+  background-color: dimgray;
+}
