@@ -67,17 +67,18 @@ function showInPrev(imageToShow) {
 
   current.style.transform = 'translateX(-100%)';
 
-  const interval = setInterval(() => {
+  (function updateView() {
     if(step > 100) {
-      clearInterval(interval);
       updateCurrentImageFromPrev(current, prev)
       currentImageIndex = imagesURLs.indexOf(imageToShow);
+      return;
     }
 
     current.style.transform = `translateX(${step - 100}%)`;
     prev.style.transform = `translateX(${step - 100}%)`;
     step += 5;
-  }, 20)
+    requestAnimationFrame(updateView);
+  })()
 }
 
 function showInNext(imageToShow) {
@@ -88,17 +89,18 @@ function showInNext(imageToShow) {
   next.style.backgroundImage = `url(${imageToShow})`;
   next.classList.add('image');
 
-  const interval = setInterval(() => {
+  (function updateView() {
     if(step > 100) {
-      clearInterval(interval);
       updateCurrentImageFromNext(current, next)
       currentImageIndex = imagesURLs.indexOf(imageToShow);
+      return;
     }
 
     current.style.transform = `translateX(-${step}%)`;
     next.style.transform = `translateX(-${step}%)`;
     step += 5;
-  }, 20)
+    requestAnimationFrame(updateView);
+  })();
 }
 
 function updateCurrentImageFromNext(current, next) {
